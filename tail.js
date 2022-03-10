@@ -1,10 +1,5 @@
-let head = function (array) {
-	if(!Array.isArray(array) || array.length == 0) {
-    return null
-	}
-
-	return array[0];
-}
+const words = ["Yo Yo", "Lighthouse", "Labs"];
+let tail = words.slice(1);
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
@@ -12,6 +7,7 @@ const assertEqual = function(actual, expected) {
     console.log(`❌❌❌Assertion Failed: ${actual} !== ${expected}`);
   }
 };
-assertEqual(head([5,6,7]), 5);
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
-assertEqual(head([]));
+console.log(words);
+assertEqual(words.length, 2);
+assertEqual(words[0], 'Lighthouse');
+assertEqual(words[1], 'Labs');
