@@ -32,7 +32,7 @@ const without = function(original, removeItem) {
     }
   }
   let newArray = original.slice();
-  newArray.splice(num, 1); //we use splice because we want to completely output a new array
+  newArray.splice(num, 1); //we use splice because we want to completely output a new array. We are removing 1 element
   return newArray
 };
 console.log(without([1, 2, 3], [1])) 

@@ -1,6 +1,6 @@
 let head = function (array) {
 	if(!Array.isArray(array) || array.length == 0) {
-		return null;
+    return null
 	}
 
 	return array[0];
