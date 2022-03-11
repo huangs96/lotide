@@ -6,22 +6,24 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+// var stuff = {'daniel':2, 'kongQi':2, 'Murpy': 3}
+
+
 const countLetters = function(words) {
   const newArr = words.split(" ").join("");
+  //dictionary result
   const results = {};
   let total = 0;
-
-  for (let letters of newArr) {
-    // console.log(letters)
-    if (letters !== newArr[letters]){ //if firstLetter does not equal to the looped [letters] of newArr
-      letters = newArr[letters];// letters equals to newArr[letters]
-        results[letters] = total;//results[letters] will = 0;
-        // console.log(total);
-      }
-      if (letters === newArr[letters]) {//if firstLetter is equal to newArr[letters]
-        results[newArr[letters]]++//results will increment based on newArr[letters]
-        // console.log(results)
-      }
-    } return results
+  console.log(newArr)
+  for (let letters of newArr) { //for all letters of newArr
+      console.log(letters)
+      if (letters in results){//letters are incremented 1 by 1 into the code below, if letters are in result
+        results[letters] = results[letters] + 1 //if letter does not show in the results, it will go to the code below. If it shows in the results, then it will +1 to value
+      }else{
+        results[letters] = 1 //if letter does not show in the result, it will create the key with the value 1.
+      } 
     }
+  return results
+  }
 console.log(countLetters('I am a test'));
+
