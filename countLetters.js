@@ -6,8 +6,6 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// var stuff = {'daniel':2, 'kongQi':2, 'Murpy': 3}
-
 
 const countLetters = function(words) {
   const newArr = words.split(" ").join("");
