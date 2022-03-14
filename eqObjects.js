@@ -21,34 +21,58 @@ const eqArrays = function(arr1, arr2) {
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 const eqObjects = function(object1, object2) {
-  if (Object.keys(object1).length !== Object.keys(object2).length) { // if object1 length does not equal to object2 length, return false. We must use Object.keys in order to get the accurate length of object1 and object2 as it accesses the number of keys.
-    return false
-  } else {
-    for (let key1 in object1) { //if object1length = object2length, we use for in loop to take data of keys in object1
-      if (key1 in object2) {//with data of keys taken in object, we see if the key1 is in object2
-        if (!object1[key1].isArray) { //if key1 of object1 is not an array
-          if (object1[key1] !== object2[key1]) { //if object1 with key1 data does not equal to object2 with key1 data (meaning if the keys are not the same), return false
-            return false
-          }
-        } else {
-          for(const element of key1) {
-            if (Array.isArray(object1[element])) {
-              let arrayMatch = eqArrays(object1[element], object2[element]);
-
-              if (!arrayMatch) {
-                return false
-              }
-            }
-          }
-        }
-      }else{ 
-        return false
-      }
-    } 
-  }
-  return true //if all conditions are satisfied, return true
+    let a1Keys = Object.keys(object1);
+    let a2Keys = Object.keys(object2); //grabbing key data from object1 and object2
   
-};
+    if (a1Keys.length !== a2Keys.length) {
+      return false; //if lengths of key data are different, return false
+    }
+  
+    for(const element of a1Keys) { // loop through a1keys storing data in element variable
+      if (Array.isArray(object1[element])) {// if object1[element] is array
+        let arrayMatch = eqArrays(object1[element], object2[element]); //check on eqArrays
+  
+        if (!arrayMatch) { //if not an array, return false
+          return false
+        }
+      } else if (object1[element] !== object2[element]) {
+          return false; //if object1 element does not equal object2 element
+      }
+    }
+    return true;
+  };
+  
+  
+
+
+// Alternate method (incomplete):
+  // if (Object.keys(object1).length !== Object.keys(object2).length) { // if object1 length does not equal to object2 length, return false. We must use Object.keys in order to get the accurate length of object1 and object2 as it accesses the number of keys.
+  //   return false
+  // } else {
+  //   for (let key1 in object1) { //if object1length = object2length, we use for in loop to take data of keys in object1
+  //     if (key1 in object2) {//with data of keys taken in object, we see if the key1 is in object2
+  //       if (!object1[key1].isArray) { //if key1 of object1 is not an array
+  //         if (object1[key1] !== object2[key1]) { //if object1 with key1 data does not equal to object2 with key1 data (meaning if the keys are not the same), return false
+  //           return false
+  //         }
+  //       } else {
+  //         for(const element of key1) {
+  //           if (Array.isArray(object1[element])) {
+  //             let arrayMatch = eqArrays(object1[element], object2[element]);
+
+  //             if (!arrayMatch) {
+  //               return false
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }else{ 
+  //       return false
+  //     }
+  //   } 
+  // }
+  // return true //if all conditions are satisfied, return true
+  
 
 const ab = { a:"1", b:"2"};
 const ba = { b:"2", a:"1"};
