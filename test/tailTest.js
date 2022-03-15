@@ -1,6 +1,5 @@
-const {assertEqual} = require('../assertEqual')
+const assertEqual = require('../assertEqual')
+const tail = require('../tail.js')
+const returnValue = tail(["Yo Yo", "Lighthouse", "Labs"]);
 
-
-assertEqual(3, 3);
-assertEqual("Yo Yo", 'Lighthouse');
-assertEqual("Labs", 'Labs');
+assertEqual(returnValue, [ 'Lighthouse', 'Labs' ]);
