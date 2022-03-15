@@ -1,5 +1,5 @@
-const {assertEqual} = require('../assertEqual')
+const assertEqual = require('../assertEqual')
+const head = require ('../head.js')
 
-assertEqual(5, 5);
-assertEqual("Hello", "Hello");
-assertEqual(null, null);
+const returnValue = head([5,6,7]);
+assertEqual(returnValue, 5);
