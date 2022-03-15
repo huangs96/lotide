@@ -1,5 +1,7 @@
-const assertArraysEqual = require('../assertArraysEqual')
+const assert = require('chai').assert
 const tail = require('../tail.js')
-const returnValue = tail(["Yo Yo", "Lighthouse", "Labs"]);
-
-assertArraysEqual(returnValue, [ 'Lighthouse', 'Labs' ]);
+describe("#tail", () => {
+  it("returns ['Lighthouse', 'Labs'] for ['Yo Yo', 'Lighthouse', 'Labs']", () => {
+    assert.equal(tail(['Yo Yo', 'Lighthouse', 'Labs']), ['Lighthouse', 'Labs']);
+  });
+});

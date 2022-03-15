@@ -1,13 +1,16 @@
 const words = ["Yo Yo", "Lighthouse", "Labs"];
-let tail = words.slice(1);
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`❌❌❌Assertion Failed: ${actual} !== ${expected}`);
+const tail = function(array) {
+  let newArray = [];
+
+  for (let i = 1; i < array.length; i++) {
+    newArray.push(array[i]);
   }
+  return newArray;
 };
-console.log(words);
-assertEqual(words.length, 2);
-assertEqual(words[0], 'Lighthouse');
-assertEqual(words[1], 'Labs');
+console.log(tail(words));
+// console.log(words);
+// console.log(words.length, 2);
+// console.log(words[0], 'Lighthouse');
+// console.log(words[2], 'Labs');
+
+module.exports = tail;
